@@ -11,7 +11,6 @@ import geopandas as gpd
 
 
 def generate_nc(inurl, outurl):
-    inurlurl = r'D:\UKTweetsMean\UKTweetsuniq.shp'
     geodf = gpd.read_file(inurl, encoding='UTF-8')
     ndf = geodf['geometry']
     xcor = ndf.x
