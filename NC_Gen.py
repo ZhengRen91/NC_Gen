@@ -1,7 +1,6 @@
 from scipy.spatial import Delaunay
 from statistics import mean
 from shapely.geometry import Polygon, Point,box
-from shapely.geometry import mapping
 from shapely import ops
 import datetime
 import multiprocessing
@@ -23,8 +22,6 @@ def generate_nc(inurl, outurl):
     meanlength = get_mean(tripolygons)
     selected = select_polygons(meanlength, tripolygons)
     plist = list()
-    for p in selected:
-        plist.append(p.buffer(0))
     dissolved = ops.unary_union(plist)
     nc = dissolved
     # Write a new Shapefile
